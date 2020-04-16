@@ -58,6 +58,9 @@ options:
     ssh_key:
         description:
             - The SSH key of the virtual machine administrator.
+    is_authentication_with_ssh_key:
+        description:
+            - Indicates whether this virtual machine uses an SSH key for authentication.
     lab_subnet:
         description:
             - An existing subnet within lab's virtual network.
@@ -242,6 +245,9 @@ class AzureRMVirtualMachine(AzureRMModuleBase):
             ssh_key=dict(
                 type='str',
                 no_log=True
+            ),
+            is_authentication_with_ssh_key=dict(
+                type='bool',
             ),
             lab_subnet=dict(
                 type='raw'
